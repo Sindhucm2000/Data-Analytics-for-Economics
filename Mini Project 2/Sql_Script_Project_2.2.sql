@@ -136,4 +136,15 @@ SELECT
 FROM organizations
 WHERE to_date(Founded, 'YYYY') BETWEEN '1990-01-01' AND '2000-12-31';
 
+-- STEP: 17
+SELECT
+     Name,
+     Country,
+     to_date(Founded, 'YYYY') AS Founded_Date,
+     Number_of_Employees
+FROM organizations
+WHERE CAST(Founded AS INTEGER) BETWEEN 1990 AND 2000
+     AND Number_of_Employees BETWEEN 2000 AND 3000;
+
+
 
