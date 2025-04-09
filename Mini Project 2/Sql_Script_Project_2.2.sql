@@ -14,7 +14,7 @@ CREATE TABLE organizations (
 
 -- STEP: 2
 copy public.organizations (Index,Organization_Id,Name,Website,Country,Description,Founded,Industry,Number_of_Employees)
-FROM 'C:\Sindhu Documents\Data Analysis Projects\Mini Project 2.2\organizations-10000.csv'
+FROM 'C:\Github_Desktop\Data-Analytics-for-Economics\Mini Project 2\organizations-10000.csv'
 DELIMITER ',' CSV HEADER;
 
 -- STEP: 3
@@ -40,7 +40,7 @@ VALUES (
 -- STEP: 5
 SELECT *
 FROM organizations
-WHERE Index = '100001'
+WHERE Index = '100001';
 
 -- STEP: 6
 SELECT
@@ -145,6 +145,56 @@ SELECT
 FROM organizations
 WHERE CAST(Founded AS INTEGER) BETWEEN 1990 AND 2000
      AND Number_of_Employees BETWEEN 2000 AND 3000;
+
+-- STEP: 18
+SELECT
+     Name,
+     Country,
+     to_date(Founded, 'YYYY') AS Founded_Date
+FROM organizations
+WHERE CAST(Founded AS INTEGER) BETWEEN 1990 AND 2000;
+
+-- STEP: 19
+SELECT
+     Name,
+     Country,
+     to_date(Founded, 'YYYY') AS Founded_Date,
+     Number_of_Employees
+FROM organizations
+WHERE CAST(Founded AS INTEGER) BETWEEN 1990 AND 2000
+     AND Number_of_Employees BETWEEN 2000 AND 3000;
+
+-- STEP: 20
+SELECT
+    CASE
+        WHEN Number_of_Employees BETWEEN 0 AND 1000 THEN '0-1000'
+        WHEN Number_of_Employees BETWEEN 1001 AND 2000 THEN '1001-2000'
+        WHEN Number_of_Employees BETWEEN 2001 AND 3000 THEN '2001-3000'
+        ELSE '3001+'
+    END AS Employee_Range,
+    COUNT(*) AS Count_of_Organizations
+FROM organizations
+WHERE CAST(Founded AS INTEGER) BETWEEN 1990 AND 2000
+GROUP BY Employee_Range
+ORDER BY Employee_Range;
+
+---- Step 1: Add the New Column firm_size
+ALTER TABLE organizations
+ADD COLUMN firm_size VARCHAR(10);
+
+---- Step 2: Populate the firm_size Column
+UPDATE organizations
+SET firm_size = CASE
+WHEN Number_of_Employees BETWEEN 0 AND 1000 THEN 'Small'
+WHEN Number_of_Employees BETWEEN 1001 AND 2000 THEN 'Medium'
+WHEN Number_of_Employees BETWEEN 2001 AND 3000 THEN 'Large'
+ELSE 'Very Large'
+END;
+
+---- Step 3: Verify the Changes
+SELECT Name, Number_of_Employees, firm_size
+FROM organizations
+LIMIT 20;
 
 
 
