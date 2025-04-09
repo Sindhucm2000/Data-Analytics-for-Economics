@@ -196,5 +196,23 @@ SELECT Name, Number_of_Employees, firm_size
 FROM organizations
 LIMIT 20;
 
+-- STEP: 21
+SELECT
+    CONCAT(Name, ' - ', Country) AS Firm_Details,
+    Founded,
+    Number_of_Employees
+FROM organizations
+WHERE
+    CAST(Founded AS INTEGER) <= EXTRACT(YEAR FROM CURRENT_DATE) - 20 -- Firms older than 20 years
+    AND Number_of_Employees > 6000; -- Huge firms
 
+-- STEP: 22
+SELECT
+    TRIM(SUBSTRING(Description FROM '^[A-Za-z]+')) AS First_Word,
+    COUNT(*) AS Frequency
+FROM organizations
+GROUP BY First_Word
+ORDER BY Frequency DESC
+LIMIT 20;
 
+-- STEP: 23
