@@ -1,22 +1,9 @@
+Hi, I’m Sindhu 👋
 
+I work at the intersection of economics, data science, and finance, turning messy data and abstract models into insights that actually inform decisions.
 
-# Welcome to ECON 5200: Applied Data Analytics in Economics
+My background is rooted in econometrics, machine learning, and financial analysis, with hands-on experience across applied research, statistical modeling, and real-world problem solving. I enjoy building things that sit between theory and practice — whether that’s translating economic intuition into code, stress-testing assumptions with data, or designing analyses that can stand up to scrutiny.
 
-Welcome to **ECON 5200: Applied Data Analytics in Economics**! This GitHub repository will serve as the central hub for all course materials, assignments, and projects. By engaging with this repository, you'll gain hands-on experience with essential data analytics tools and collaborative workflows.
+This GitHub is a collection of projects spanning data analysis, ML experiments, economic modeling, and finance-focused workflows. Most of what you’ll see here is driven by one goal: clarity. Clear logic, clear assumptions, and results that are easy to explain to both technical and non-technical audiences.
 
-## Getting Started
-
-### 1. Create a GitHub Account
-
-If you don't already have a GitHub account, follow these steps to create one:
-
-1. **Sign Up:**
-   - Go to [GitHub Sign Up](https://github.com/join).
-   - Enter your details and create a username and password.
-   - Verify your email address as prompted.
-
-2. **Set Up Your Profile:**
-   - Complete your profile by adding a profile picture and bio if desired.
-   - Ensure your email address is verified for seamless repository interactions.
-
-### 2. Please check the class page (Canvas>Modules>Week2) for the remaining instructions, including how to fork and submit the project via the repository.
+If you care about thoughtful analysis, reproducible research, and using data for more than just dashboards — you’ll probably feel at home here.
